@@ -8,6 +8,8 @@ export default function App() {
 
   const incrementar = () => { setContador(contador + 1); };
   const decrementar = () => { setContador(contador - 1); };
+  // Nova função para zerar o contador
+  const reiniciar = () => { setContador(0); };
 
   return (
     <View style={styles.container}>
@@ -24,6 +26,11 @@ export default function App() {
           <Text style={styles.textoBotao}>+</Text>
         </TouchableOpacity>
       </View>
+
+      {/* Novo Botão de Reiniciar */}
+      <TouchableOpacity style={styles.botaoReiniciar} onPress={reiniciar}>
+        <Text style={styles.textoBotaoReiniciar}>Reiniciar</Text>
+      </TouchableOpacity>
 
       <StatusBar style="auto" />
     </View>
@@ -52,6 +59,7 @@ const styles = StyleSheet.create({
   linhaDeBotoes: {
     flexDirection: 'row',
     gap: 20,
+    marginBottom: 20, // Espaço extra para o botão de baixo
   },
   botaoMais: {
     backgroundColor: '#27ae60',
@@ -65,9 +73,21 @@ const styles = StyleSheet.create({
     paddingVertical: 15,
     borderRadius: 10,
   },
+  botaoReiniciar: {
+    backgroundColor: '#3498db',
+    paddingHorizontal: 40,
+    paddingVertical: 12,
+    borderRadius: 10,
+    marginTop: 10,
+  },
   textoBotao: {
     color: 'white',
     fontSize: 30,
+    fontWeight: 'bold',
+  },
+  textoBotaoReiniciar: {
+    color: 'white',
+    fontSize: 18,
     fontWeight: 'bold',
   }
 });
